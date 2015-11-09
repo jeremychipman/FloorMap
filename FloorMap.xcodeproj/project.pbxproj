@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B915E9E41BED72D1003AB2E5 /* FloorMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B915E9E31BED72D1003AB2E5 /* FloorMapViewController.swift */; };
+		B951F5861BED3D8A00E14BD9 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B951F5851BED3D8A00E14BD9 /* Common.swift */; };
+		B99B73EC1BEBE9C70037D47D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99B73EB1BEBE9C70037D47D /* LoginViewController.swift */; };
 		CAE7D5C31BE06EA7006EBCF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE7D5C21BE06EA7006EBCF9 /* AppDelegate.swift */; };
 		CAE7D5C51BE06EA7006EBCF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE7D5C41BE06EA7006EBCF9 /* ViewController.swift */; };
 		CAE7D5C81BE06EA7006EBCF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAE7D5C61BE06EA7006EBCF9 /* Main.storyboard */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B915E9E31BED72D1003AB2E5 /* FloorMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorMapViewController.swift; sourceTree = "<group>"; };
+		B951F5851BED3D8A00E14BD9 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		B99B73EB1BEBE9C70037D47D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CAE7D5BF1BE06EA7006EBCF9 /* FloorMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloorMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE7D5C21BE06EA7006EBCF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAE7D5C41BE06EA7006EBCF9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,8 +106,11 @@
 				CAE7D5C21BE06EA7006EBCF9 /* AppDelegate.swift */,
 				CAE7D5C41BE06EA7006EBCF9 /* ViewController.swift */,
 				CAE7D5C61BE06EA7006EBCF9 /* Main.storyboard */,
+				B915E9E31BED72D1003AB2E5 /* FloorMapViewController.swift */,
+				B99B73EB1BEBE9C70037D47D /* LoginViewController.swift */,
 				CAE7D5C91BE06EA7006EBCF9 /* Assets.xcassets */,
 				CAE7D5CB1BE06EA7006EBCF9 /* LaunchScreen.storyboard */,
+				B951F5851BED3D8A00E14BD9 /* Common.swift */,
 				CAE7D5CE1BE06EA7006EBCF9 /* Info.plist */,
 			);
 			path = FloorMap;
@@ -258,8 +267,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B951F5861BED3D8A00E14BD9 /* Common.swift in Sources */,
+				B99B73EC1BEBE9C70037D47D /* LoginViewController.swift in Sources */,
 				CAE7D5C51BE06EA7006EBCF9 /* ViewController.swift in Sources */,
 				CAE7D5C31BE06EA7006EBCF9 /* AppDelegate.swift in Sources */,
+				B915E9E41BED72D1003AB2E5 /* FloorMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +496,7 @@
 				CAE7D5E91BE06EA7006EBCF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CAE7D5EA1BE06EA7006EBCF9 /* Build configuration list for PBXNativeTarget "FloorMapTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +505,7 @@
 				CAE7D5EC1BE06EA7006EBCF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CAE7D5ED1BE06EA7006EBCF9 /* Build configuration list for PBXNativeTarget "FloorMapUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +514,7 @@
 				CAE7D5EF1BE06EA7006EBCF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
