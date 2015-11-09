@@ -8,8 +8,7 @@
 
 import UIKit
 
-class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate
-    {
+class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
         
         @IBOutlet weak var scrollView: UIScrollView!
         
@@ -32,32 +31,36 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
             edgeGesture.edges = UIRectEdge.Left
             frontView.addGestureRecognizer(edgeGesture)
             
-            
-            
         }
         
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
         }
+    
         func onEdgePan (edgeGesture: UIScreenEdgePanGestureRecognizer){
             
-        var point = edgeGesture.locationInView(view)
-        var translation=edgeGesture.translationInView(view)
-        
-        if edgeGesture.state == UIGestureRecognizerState.Began
-        {
+            var point = edgeGesture.locationInView(view)
+            var translation = edgeGesture.translationInView(view)
             frontViewOriginalCenter = frontView.center
+            if edgeGesture.state == UIGestureRecognizerState.Began {
+                
+                
+                UIView.animateWithDuration(0.4, animations: { () -> Void in
+                    self.frontView.center.x = self.frontViewOriginalCenter.x + 320
+                })
+                
             
+                
+                print("screen edge called \(frontView.frame.origin)")
             }
-            
-        print("screen edge called \(frontView.frame.origin)")
-            
+        }
+    
         func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
             return self.thirdFloorImageView
             
         }
-    }
+    
     
 }
 

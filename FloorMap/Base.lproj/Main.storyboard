@@ -32,6 +32,10 @@
                                         <rect key="frame" x="8" y="249" width="86" height="71"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="850 Cherry San Bruno Floor Plan" id="ZWk-HU-N5W">
+                                        <rect key="frame" x="-562" y="-93" width="1440" height="713"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -316,5 +320,6 @@
     </scenes>
     <resources>
         <image name="3rd floor" width="1242" height="387"/>
+        <image name="850 Cherry San Bruno Floor Plan" width="1440" height="713"/>
     </resources>
 </document>
