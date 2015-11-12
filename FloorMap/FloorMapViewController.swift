@@ -96,20 +96,33 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
         
         var point = edgeGesture.locationInView(view)
         var translation = edgeGesture.translationInView(view)
-        frontViewOriginalCenter = frontView.center
+        
         if edgeGesture.state == UIGestureRecognizerState.Began {
-                
-                
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
-                self.frontView.center.x = self.frontViewOriginalCenter.x + 160
-            })
-                
+            frontViewOriginalCenter = frontView.center
+            print("Gesture began at: \(point)")
             
-                
+        }
+        else if edgeGesture.state == UIGestureRecognizerState.Changed {
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x + translation.x)
+                }, completion: nil)
+        }
+            
+        else if edgeGesture.state == UIGestureRecognizerState.Ended {
             print("screen edge called \(frontView.frame.origin)")
+            if translation.x < 250 {
+                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: { () -> Void in
+                    self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x)
+                    }, completion: nil)
+            }
+            else if translation.x >= 250 {
+                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: { () -> Void in
+                    self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x + 250)
+                    }, completion: nil)
+                
+            }
         }
     }
-    
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return self.mainMapView
