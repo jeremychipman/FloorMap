@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B915E9E41BED72D1003AB2E5 /* FloorMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B915E9E31BED72D1003AB2E5 /* FloorMapViewController.swift */; };
+		B92251071BF50F71000E4829 /* AvailableRoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92251061BF50F71000E4829 /* AvailableRoomsViewController.swift */; };
+		B92251091BF51157000E4829 /* RoomFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92251081BF51157000E4829 /* RoomFinderViewController.swift */; };
 		B951F5861BED3D8A00E14BD9 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B951F5851BED3D8A00E14BD9 /* Common.swift */; };
 		B99B73EC1BEBE9C70037D47D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99B73EB1BEBE9C70037D47D /* LoginViewController.swift */; };
 		C05CBE4E1BF286DF008FE24D /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CBE4D1BF286DF008FE24D /* SearchResultsTableViewCell.swift */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		B915E9E31BED72D1003AB2E5 /* FloorMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorMapViewController.swift; sourceTree = "<group>"; };
+		B92251061BF50F71000E4829 /* AvailableRoomsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvailableRoomsViewController.swift; path = ../AvailableRoomsViewController.swift; sourceTree = "<group>"; };
+		B92251081BF51157000E4829 /* RoomFinderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomFinderViewController.swift; sourceTree = "<group>"; };
 		B951F5851BED3D8A00E14BD9 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		B99B73EB1BEBE9C70037D47D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C05CBE4D1BF286DF008FE24D /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
@@ -120,6 +124,10 @@
 			children = (
 				C05CBE4C1BF28325008FE24D /* Swift files */,
 				CAE7D5C61BE06EA7006EBCF9 /* Main.storyboard */,
+				B92251081BF51157000E4829 /* RoomFinderViewController.swift */,
+				B92251061BF50F71000E4829 /* AvailableRoomsViewController.swift */,
+				B915E9E31BED72D1003AB2E5 /* FloorMapViewController.swift */,
+				B99B73EB1BEBE9C70037D47D /* LoginViewController.swift */,
 				CAE7D5C91BE06EA7006EBCF9 /* Assets.xcassets */,
 				CAE7D5CB1BE06EA7006EBCF9 /* LaunchScreen.storyboard */,
 				CAE7D5CE1BE06EA7006EBCF9 /* Info.plist */,
@@ -279,6 +287,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B951F5861BED3D8A00E14BD9 /* Common.swift in Sources */,
+				B92251071BF50F71000E4829 /* AvailableRoomsViewController.swift in Sources */,
+				B92251091BF51157000E4829 /* RoomFinderViewController.swift in Sources */,
 				B99B73EC1BEBE9C70037D47D /* LoginViewController.swift in Sources */,
 				C05CBE4E1BF286DF008FE24D /* SearchResultsTableViewCell.swift in Sources */,
 				CAE7D5C51BE06EA7006EBCF9 /* ViewController.swift in Sources */,
