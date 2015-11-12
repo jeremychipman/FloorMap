@@ -9,57 +9,72 @@
 import UIKit
 
 class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
-        
-        @IBOutlet weak var scrollView: UIScrollView!
-        
-        @IBOutlet var masterView: UIView!
-        
-        @IBOutlet weak var frontView: UIView!
     
-        @IBOutlet weak var thirdFloorImageView: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
-        var edgeGesture: UIScreenEdgePanGestureRecognizer!
-        var frontViewOriginalCenter: CGPoint!
+    @IBOutlet var masterView: UIView!
     
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            scrollView.contentSize = CGSize(width: 1242, height: 400)
-            scrollView.minimumZoomScale = 1
-            scrollView.maximumZoomScale = 1.9
-            
-            let edgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "onEdgePan:")
-            edgeGesture.edges = UIRectEdge.Left
-            frontView.addGestureRecognizer(edgeGesture)
-            
-        }
+    @IBOutlet weak var frontView: UIView!
+    
+    @IBOutlet weak var thirdFloorImageView: UIImageView!
+    
+    var edgeGesture: UIScreenEdgePanGestureRecognizer!
+    var frontViewOriginalCenter: CGPoint!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        scrollView.contentSize = CGSize(width: 1242, height: 400)
+        scrollView.minimumZoomScale = 1
+        scrollView.maximumZoomScale = 1.9
         
-        override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
-            // Dispose of any resources that can be recreated.
-        }
+        let edgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "onEdgePan:")
+        edgeGesture.edges = UIRectEdge.Left
+        frontView.addGestureRecognizer(edgeGesture)
+        
+    }
     
-        func onEdgePan (edgeGesture: UIScreenEdgePanGestureRecognizer){
-            
-            var point = edgeGesture.locationInView(view)
-            var translation = edgeGesture.translationInView(view)
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func onEdgePan (edgeGesture: UIScreenEdgePanGestureRecognizer){
+        
+        var point = edgeGesture.locationInView(view)
+        var translation = edgeGesture.translationInView(view)
+        
+        if edgeGesture.state == UIGestureRecognizerState.Began {
             frontViewOriginalCenter = frontView.center
-            if edgeGesture.state == UIGestureRecognizerState.Began {
-                
-                
-                UIView.animateWithDuration(0.4, animations: { () -> Void in
-                    self.frontView.center.x = self.frontViewOriginalCenter.x + 320
-                })
-                
+            print("Gesture began at: \(point)")
             
+        }
+        else if edgeGesture.state == UIGestureRecognizerState.Changed {
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x + translation.x)
+                }, completion: nil)
+        }
+            
+        else if edgeGesture.state == UIGestureRecognizerState.Ended {
+            print("screen edge called \(frontView.frame.origin)")
+            if translation.x < 250 {
+                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: { () -> Void in
+                    self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x)
+                    }, completion: nil)
+            }
+            else if translation.x >= 250 {
+                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: { () -> Void in
+                    self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x + 250)
+                    }, completion: nil)
                 
-                print("screen edge called \(frontView.frame.origin)")
             }
         }
+    }
     
-        func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
-            return self.thirdFloorImageView
-            
-        }
+    
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return self.thirdFloorImageView
+        
+    }
     
     
 }
