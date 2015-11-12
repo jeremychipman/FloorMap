@@ -101,7 +101,7 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
                 
                 
             UIView.animateWithDuration(0.4, animations: { () -> Void in
-                self.frontView.center.x = self.frontViewOriginalCenter.x + 160
+                self.frontView.center.x = self.frontViewOriginalCenter.x
             })
                 
             
