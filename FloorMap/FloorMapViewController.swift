@@ -28,6 +28,7 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
     var frontViewOriginalCenter: CGPoint!
     var initialTransform = CATransform3DIdentity
     
+    @IBOutlet var panGesture: UIPanGestureRecognizer!
     
     // setting up for search
     
@@ -83,6 +84,8 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
         searchController.hidesNavigationBarDuringPresentation = false
         
         //END SEARCH STUFF
+        
+        panGesture.enabled = false
             
     }
         
@@ -92,10 +95,11 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
     }
     
     
-    func onEdgePan (edgeGesture: UIScreenEdgePanGestureRecognizer){
+    @IBAction func onEdgePan (edgeGesture: UIPanGestureRecognizer){
         
         var point = edgeGesture.locationInView(view)
         var translation = edgeGesture.translationInView(view)
+        let velocity = edgeGesture.velocityInView(view)
         
         if edgeGesture.state == UIGestureRecognizerState.Began {
             frontViewOriginalCenter = frontView.center
@@ -103,19 +107,19 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
             
         }
         else if edgeGesture.state == UIGestureRecognizerState.Changed {
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
                 self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x + translation.x)
-                }, completion: nil)
         }
             
         else if edgeGesture.state == UIGestureRecognizerState.Ended {
             print("screen edge called \(frontView.frame.origin)")
-            if translation.x < 250 {
+            if velocity.x < 0 {
+                panGesture.enabled = false
                 UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: { () -> Void in
                     self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x)
                     }, completion: nil)
             }
-            else if translation.x >= 250 {
+            else {
+                panGesture.enabled = true
                 UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: { () -> Void in
                     self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x + 250)
                     }, completion: nil)

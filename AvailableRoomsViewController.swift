@@ -20,7 +20,7 @@ class AvailableRoomsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        peopleLabel.text = "Rooms for \(peopleLabeltext) people"
         // Do any additional setup after loading the view.
     }
 
