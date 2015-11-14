@@ -25,11 +25,11 @@ class RoomFinderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         
-       
-
-
+        
+        
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -43,22 +43,27 @@ class RoomFinderViewController: UIViewController {
     
     
     @IBAction func onPressButton(sender: AnyObject) {
+        self.activityIndicator.startAnimating()
+        // Delay for 2 seconds, then run the code between the braces
+        delay(2) {
+        self.activityIndicator.stopAnimating()
         var peopleNumbers = ["2-4", "5-10", ">10"]
-        var peopleNumber = peopleNumbers[peopleSegment.selectedSegmentIndex]
+        let peopleNumber = peopleNumbers[self.peopleSegment.selectedSegmentIndex]
         var timeNumbers = ["15 min", "30 min", "1 hr", ">1 hr"]
-        let timeNumber = timeNumbers[timeSegment.selectedSegmentIndex]
-        peopleLabel.text = "Rooms for \(peopleNumber) people"
-        timeLabel.text = "available for \(timeNumber)"
-        
+        let timeNumber = timeNumbers[self.timeSegment.selectedSegmentIndex]
+        self.peopleLabel.text = "Rooms for \(peopleNumber) people"
+        self.timeLabel.text = "available for \(timeNumber)"
     }
     
-    //            let destViewController : AvailableRoomsViewController = segue.destinationViewController as! AvailableRoomsViewController
-    
-    //            destViewController.peopleLabeltext = peopleNumber
-    //
-    //            destViewController.view.layoutIfNeeded()
-    //
-    //            destViewController.timeLabel.text = timeNumber
+}
+
+//            let destViewController : AvailableRoomsViewController = segue.destinationViewController as! AvailableRoomsViewController
+
+//            destViewController.peopleLabeltext = peopleNumber
+//
+//            destViewController.view.layoutIfNeeded()
+//
+//            destViewController.timeLabel.text = timeNumber
 //}
 
 
