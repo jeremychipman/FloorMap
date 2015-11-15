@@ -107,7 +107,8 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
             
         }
         else if edgeGesture.state == UIGestureRecognizerState.Changed {
-                self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x + translation.x)
+            self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x + translation.x)
+            print("Gesture changed at: \(point)")
         }
             
         else if edgeGesture.state == UIGestureRecognizerState.Ended {
@@ -119,10 +120,10 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
                     }, completion: nil)
             }
             else {
+                print("Pan gesture began at: \(point)")
                 panGesture.enabled = true
                 UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: { () -> Void in
-                    self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x + 250)
-                    }, completion: nil)
+                    self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x + 250)                    }, completion: nil)
                 
             }
         }
