@@ -24,6 +24,8 @@ class RoomFinderViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     var rooms: [String]!
     var floors: [String]!
     var capacity: [String]!
@@ -31,9 +33,11 @@ class RoomFinderViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollView.contentSize=CGSize(width: 320, height: 544)
+        
         rooms = ["Conf Rm A", "Conf Rm B", "Conf Rm C", "Training Room", "User Research Room"]
-        floors = ["1st floor"]
-        capacity = ["20", "50", "100"]
+        floors = ["1st floor", "2nd floor", "3rd floor", "4th floor", "5th floor"]
+        capacity = ["20", "50", "100", "150", "200"]
         print(rooms[0])
         print(rooms[1])
         print(rooms[2])
@@ -81,14 +85,18 @@ class RoomFinderViewController: UIViewController, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCellWithIdentifier("RoomCell") as! RoomCell
         
         // Configure YourCustomCell using the outlets that you've defined.
-        var room = rooms[indexPath.row]
-//        var floor = floors[indexPath.row]
-//        var capacities = capacity[indexPath.row]
+        let roomies = rooms[indexPath.row]
+        let floories = floors [indexPath.row]
+        let cappies = capacity [indexPath.row]
+        
     
-        cell.roomLabel.text = room
-//        cell.floorLabel.text = floor
-//        cell.capacityLabel.text = capacities
-//        
+        cell.roomLabel.text = roomies
+        cell.floorLabel.text = floories
+        cell.capacityLabel.text = cappies
+        
+        
+        
+
         print("row: \(indexPath.row)")
         
         return cell

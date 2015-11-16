@@ -9,14 +9,14 @@
 import UIKit
 
 class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
-        
+    
     @IBOutlet weak var scrollView: UIScrollView!
-        
+    
     @IBOutlet var masterView: UIView!
-        
+    
     @IBOutlet weak var frontView: UIView!
     
-//    @IBOutlet weak var thirdFloorImageView: UIImageView!
+    //    @IBOutlet weak var thirdFloorImageView: UIImageView!
     
     @IBOutlet weak var mainMapView: UIView!
     @IBOutlet weak var mapImageView: UIImageView!
@@ -47,7 +47,7 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
         scrollView.contentSize = CGSize(width: 1242, height: 400)
         scrollView.minimumZoomScale = 1
         scrollView.maximumZoomScale = 2.9
-            
+        
         let edgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "onEdgePan:")
         edgeGesture.edges = UIRectEdge.Left
         frontView.addGestureRecognizer(edgeGesture)
@@ -86,9 +86,9 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
         //END SEARCH STUFF
         
         panGesture.enabled = false
-            
-    }
         
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -97,9 +97,9 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
     
     @IBAction func onEdgePan (edgeGesture: UIPanGestureRecognizer){
         
-        var point = edgeGesture.locationInView(view)
-        var translation = edgeGesture.translationInView(view)
-        let velocity = edgeGesture.velocityInView(view)
+        let point = edgeGesture.locationInView(view)
+        let translation = edgeGesture.translationInView(view)
+        var velocity = edgeGesture.velocityInView(view)
         
         if edgeGesture.state == UIGestureRecognizerState.Began {
             frontViewOriginalCenter = frontView.center
@@ -112,28 +112,30 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
         }
             
         else if edgeGesture.state == UIGestureRecognizerState.Ended {
-            print("screen edge called \(frontView.frame.origin)")
-            if velocity.x < 0 {
-                panGesture.enabled = false
-                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: { () -> Void in
-                    self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x)
-                    }, completion: nil)
-            }
-            else {
-                print("Pan gesture began at: \(point)")
+            print("gesture eneded at \(point)")
+            if velocity.x > 0 {
                 panGesture.enabled = true
                 UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: { () -> Void in
-                    self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x + 250)                    }, completion: nil)
-                
+                    self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x + 250)
+                    }, completion: nil)
             }
+//            else {
+//                panGesture.enabled = true
+//                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: { () -> Void in
+//                    self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x + 250)
+//                    print("Pan gesture began at: \(point)")
+//                    }, completion: nil)
+//            
+//            }
         }
+        
     }
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return self.mainMapView
-            
+        
     }
-
+    
     
     func skewMap(mapView: UIView) {
         
@@ -168,14 +170,14 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
             } else if floor == 6 {
                 imageView.image = UIImage(named: "SB850C6")
                 
-        } else if buildingName == "SV860C" {
-            if floor == 1 {
-                imageView.image = UIImage(named: "SV860C1")
-            } //need to add conditions for other floors
+            } else if buildingName == "SV860C" {
+                if floor == 1 {
+                    imageView.image = UIImage(named: "SV860C1")
+                } //need to add conditions for other floors
                 
             } //need to add conditions for other buildings
         }
-       
+        
         skewMap(imageView.superview!)
         
     }
@@ -193,7 +195,7 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
         mainMapView.layer.transform = headingTransform
         
     }
-
+    
     
     // START SEARCH FUNCTIONS
     
