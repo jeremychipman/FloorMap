@@ -33,7 +33,7 @@ class RoomFinderViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.contentSize=CGSize(width: 320, height: 544)
+
         
         rooms = ["Conf Rm A", "Conf Rm B", "Conf Rm C", "Training Room", "User Research Room"]
         floors = ["1st floor", "2nd floor", "3rd floor", "4th floor", "5th floor"]

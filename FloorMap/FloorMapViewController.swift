@@ -115,18 +115,18 @@ class FloorMapViewController: UIViewController, UIScrollViewDelegate, UIGestureR
             print("gesture eneded at \(point)")
             if velocity.x > 0 {
                 panGesture.enabled = true
-                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: { () -> Void in
+                UIView.animateWithDuration(0.2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: { () -> Void in
                     self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x + 250)
                     }, completion: nil)
             }
-//            else {
-//                panGesture.enabled = true
-//                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: { () -> Void in
-//                    self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x + 250)
-//                    print("Pan gesture began at: \(point)")
-//                    }, completion: nil)
-//            
-//            }
+            else {
+                panGesture.enabled = false
+                UIView.animateWithDuration(0.2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: { () -> Void in
+                    self.frontView.center.x = CGFloat(self.frontViewOriginalCenter.x - 250)
+                    print("Pan gesture began at: \(point)")
+                    }, completion: nil)
+            
+            }
         }
         
     }
